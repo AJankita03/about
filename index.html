@@ -74,9 +74,7 @@
     margin-bottom: 0.15em;
     text-transform: uppercase;
     letter-spacing: 5px;
-    text-shadow:
-      0 0 6px #d8d0d3,
-      
+    text-shadow: 0 0 6px #d8d0d3;
   }
 
   /* Remove all other heading glows by resetting text-shadow */
@@ -84,14 +82,6 @@
     text-shadow: none !important;
   }
 
-  header p.subtitle {
-    font-weight: 400;
-    font-size: 1.25rem;
-    max-width: 640px;
-    margin: 0 auto;
-    color: #c1c1c188;
-    letter-spacing: 1px;
-  }
   header p.tagline {
     font-weight: 500;
     font-size: 1.1rem;
@@ -123,9 +113,7 @@
     background: #19305a; /* lighter navy with more brightness */
     padding: 1.6em 1.9em;
     border-radius: 14px;
-    box-shadow:
-      0 3px 12px rgba(118, 117, 118, 0.22),
-      0 12px 35px rgba(97, 99, 101, 0.15);
+    box-shadow: 0 3px 12px rgba(118, 117, 118, 0.22), 0 12px 35px rgba(97, 99, 101, 0.15);
     color: #6e6b6b;
     font-weight: 400;
     transition: transform 0.4s ease, box-shadow 0.4s ease;
@@ -139,9 +127,7 @@
   }
   .feature-item:hover {
     transform: translateY(-6px);
-    box-shadow:
-      0 12px 28px rgba(116, 115, 115, 0.5),
-      0 30px 55px rgba(56, 65, 73, 0.35);
+    box-shadow: 0 12px 28px rgba(116, 115, 115, 0.5), 0 30px 55px rgba(56, 65, 73, 0.35);
   }
 
   .feature-item h3 {
@@ -172,43 +158,27 @@
     user-select: text;
   }
 
-  /* Members Section with swiper integration */
+  /* Members Section */
   #team {
     margin-top: 3.4em;
-  }
-  .swiper-container {
-    width: 100%;
-    padding-bottom: 2.5em;
-  }
-  .swiper-wrapper {
-    display: flex;
-    gap: 2.4em;
-  }
-  .swiper-slide {
-    background: #23334f;
-    border-radius: 16px;
-    padding: 2.1em 1.8em 2.4em 1.8em;
-    width: 280px !important;
-    text-align: center;
-    box-shadow:
-      0 7px 20px rgba(84, 90, 96, 0.23);
     display: flex;
     flex-direction: column;
     align-items: center;
-    opacity: 0;
-    transform: translateY(40px);
-    animation-fill-mode: forwards;
-    cursor: default;
-    user-select: none;
   }
-  .swiper-slide.visible {
-    animation: fadeInUp 0.8s ease forwards;
+
+  .member-card {
+    background: #23334f;
+    border-radius: 16px;
+    padding: 2.1em 1.8em 2.4em 1.8em;
+    width: 280px;
+    text-align: center;
+    box-shadow: 0 7px 20px rgba(84, 90, 96, 0.23);
+    margin-bottom: 1.5em;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
-  .swiper-slide:hover {
-    transform: translateY(-10px);
-    box-shadow:
-      0 22px 48px rgba(55, 56, 58, 0.6);
-    filter: saturate(110%) brightness(1.05);
+  .member-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(84, 90, 96, 0.35);
   }
 
   /* Member photo circle with border ring */
@@ -223,8 +193,7 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    box-shadow:
-      0 3px 16px rgba(109, 102, 104, 0.55);
+    box-shadow: 0 3px 16px rgba(109, 102, 104, 0.55);
   }
   .member-photo img {
     width: 100%;
@@ -253,11 +222,6 @@
     font-style: italic;
     color: #b9c8eecc;
     margin-bottom: 0.7em;
-    font-size: 1rem;
-  }
-  .swiper-slide p {
-    color: #ced9f7dd;
-    font-weight: 300;
     font-size: 1rem;
   }
 
@@ -293,32 +257,11 @@
     .features-list {
       grid-template-columns: 1fr;
     }
-    .swiper-wrapper {
-      flex-wrap: nowrap;
-      overflow-x: auto;
-      gap: 1.4em;
-      padding-bottom: 8px;
-    }
     #team {
       margin-top: 2.6em;
     }
   }
-
-  /* Swiper pagination styling override */
-  .swiper-pagination-bullet {
-    background: #edafc4;
-    opacity: 0.6;
-  }
-  .swiper-pagination-bullet-active {
-    opacity: 1;
-  }
 </style>
-
-<!-- Swiper styles -->
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
-/>
 </head>
 <body>
   <div class="container" role="main" aria-label="About Iconista Application">
@@ -335,138 +278,103 @@
     <section id="features" aria-label="Application features">
       <h2>Our Features</h2>
       <div class="features-list">
-        <article class="feature-item" tabindex="0" aria-describedby="daily-motivation-desc">
-          <h3>
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M12 2a10 10 0 1010 10A10.011 10.011 0 0012 2zm0 18a8 8 0 118-8 8.009 8.009 0 01-8 8z"/>
-              <circle cx="12" cy="10" r="3"/>
-            </svg>
-            Daily Motivation
-          </h3>
-          <p id="daily-motivation-desc">Start your day with motivational quotes and stories from women who have achieved greatness to keep you inspired daily.</p>
-        </article>
-
-        <article class="feature-item" tabindex="0" aria-describedby="history-calendar-desc">
-          <h3>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2h-1V1a1 1 0 00-2 0v1H9V1a1 1 0 00-2 0v1H6a3 3 0 00-3 3v13a3 3 0 003 3h12a3 3 0 003-3V5a3 3 0 00-3-3zM6 20V9h12l.002 11z"/></svg>
-            Day in History Calendar
-          </h3>
-          <p id="history-calendar-desc">Explore significant events in women’s history and discover the milestones that shaped the world.</p>
-        </article>
-
-        <article class="feature-item" tabindex="0" aria-describedby="upcoming-events-desc">
-          <h3>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V6a2 2 0 00-2-2zm0 16H5V9h14z"/></svg>
-            Upcoming Events
-          </h3>
-          <p id="upcoming-events-desc">Stay informed about conferences and events focused on women empowerment and education.</p>
-        </article>
-
         <article class="feature-item" tabindex="0" aria-describedby="chatbot-shree-desc">
           <h3>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 8h10v2H7zm0 4h7v2H7z"/><circle cx="12" cy="12" r="10" fill="none" stroke="#f48fb1" stroke-width="1.5"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="#eddee3">
+              <path d="M7 8h10v2H7zm0 4h7v2H7z"/><circle cx="12" cy="12" r="10" fill="none" stroke="#eddee3" stroke-width="1.5"/>
+            </svg>
             Chatbot - Shree
           </h3>
           <p id="chatbot-shree-desc">Shree is your personal guide, answering questions and supporting your Iconista journey.</p>
         </article>
 
-        <article class="feature-item" tabindex="0" aria-describedby="weekly-stories-desc">
+        <article class="feature-item" tabindex="0" aria-describedby="weekly-highlights-desc">
           <h3>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 7H5a1 1 0 00-1 1v12a1 1 0 001 1h14a1 1 0 001-1V8a1 1 0 00-1-1zM6 18v-5h12v5z"/></svg>
-            Weekly Stories
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="#eddee3">
+              <path d="M19 7H5a1 1 0 00-1 1v12a1 1 0 001 1h14a1 1 0 001-1V8a1 1 0 00-1-1zM6 18v-5h12v5z"/>
+            </svg>
+            Weekly Highlights
           </h3>
-          <p id="weekly-stories-desc">Read inspiring stories from successful women each week and share your own experiences with the community.</p>
+          <p id="weekly-highlights-desc">Inspiring stories from successful women each week to motivate and guide you.</p>
+        </article>
+
+        <article class="feature-item" tabindex="0" aria-describedby="study-desc">
+          <h3>
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="#eddee3">
+              <path d="M7 7h10v10H7z"/>
+            </svg>
+            Study Section
+          </h3>
+          <p id="study-desc">Prepare for exams with interviews, study materials, and job opportunities tailored for women achievers.</p>
+        </article>
+
+        <article class="feature-item" tabindex="0" aria-describedby="fun-games-desc">
+          <h3>
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="#eddee3">
+              <path d="M6 3h12l-4 8h5l-8 8-2-7H6z"/>
+            </svg>
+            Fun & Games
+          </h3>
+          <p id="fun-games-desc">Engage interactively with success stories through unique games designed to educate and entertain.</p>
+        </article>
+
+        <article class="feature-item" tabindex="0" aria-describedby="creative-poster-desc">
+          <h3>
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="#eddee3">
+              <path d="M19 9v2H5V9zm0 4v2H5v-2z"/>
+            </svg>
+            Creative Poster
+          </h3>
+          <p id="creative-poster-desc">Design your own posters inspired by iconic women and showcase your creativity.</p>
         </article>
 
         <article class="feature-item" tabindex="0" aria-describedby="contact-us-desc">
           <h3>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a5 5 0 105-5 5 5 0 00-5 5zm0 2c-4 0-7 2-7 4v2h14v-2c0-2-3-4-7-4z"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="#eddee3">
+              <path d="M12 12a5 5 0 105-5 5 5 0 00-5 5zm0 2c-4 0-7 2-7 4v2h14v-2c0-2-3-4-7-4z"/>
+            </svg>
             Contact Us
           </h3>
           <p id="contact-us-desc">Reach out to the Iconista team anytime with your questions or feedback.</p>
         </article>
 
-        <article class="feature-item" tabindex="0" aria-describedby="app-flow-desc">
+        <article class="feature-item" tabindex="0" aria-describedby="day-in-history-desc">
           <h3>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 13h2v-2H3zm0 4h2v-2H3zm4-8h14v11H7z"/></svg>
-            App Flow Guide
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="#eddee3">
+              <path d="M18 2h-1V1a1 1 0 00-2 0v1H9V1a1 1 0 00-2 0v1H6a3 3 0 00-3 3v13a3 3 0 003 3h12a3 3 0 003-3V5a3 3 0 00-3-3zM6 20V9h12l.002 11z"/>
+            </svg>
+            Day in History
           </h3>
-          <p id="app-flow-desc">Navigate the app easily with our comprehensive flow guide.</p>
-        </article>
-
-        <article class="feature-item" tabindex="0" aria-describedby="fun-games-desc">
-          <h3>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12l-4 8h5l-8 8-2-7H6z"/></svg>
-            Fun Learning Games
-          </h3>
-          <p id="fun-games-desc">Engage with success stories interactively through uniquely designed games.</p>
-        </article>
-
-        <article class="feature-item" tabindex="0" aria-describedby="poster-maker-desc">
-          <h3>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 9v2H5V9zm0 4v2H5v-2z"/></svg>
-            Creative Poster Maker
-          </h3>
-          <p id="poster-maker-desc">Show your creativity by designing posters inspired by the women you admire.</p>
-        </article>
-
-        <article class="feature-item" tabindex="0" aria-describedby="hub-section-desc">
-          <h3>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1010 10A10 10 0 0012 2zm0 18a8 8 0 118-8 8 8 0 01-8 8z"/></svg>
-            Hub Section
-          </h3>
-          <p id="hub-section-desc">Access podcasts, movie recommendations, and connections with successful women from around the world.</p>
-        </article>
-
-        <article class="feature-item" tabindex="0" aria-describedby="study-section-desc">
-          <h3>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10H7z"/></svg>
-            Study Section
-          </h3>
-          <p id="study-section-desc">Prepare for government exams with interviews, job opportunities, and study materials tailored for women achievers.</p>
-        </article>
-
-        <article class="feature-item" tabindex="0" aria-describedby="swiper-section-desc">
-          <h3>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12l1.41 1.41L10.83 8l-5.42-5.41z"/></svg>
-            Swiper Section
-          </h3>
-          <p id="swiper-section-desc">Discover success stories from women in various fields with an engaging swiper interface.</p>
+          <p id="day-in-history-desc">Explore significant events in women’s history and discover the milestones that shaped the world.</p>
         </article>
       </div>
     </section>
 
     <section id="team" aria-label="Team members">
       <h2>Meet Our Team</h2>
-      <div class="swiper-container" aria-label="Team member profiles">
-        <div class="swiper-wrapper">
-          <article class="swiper-slide" tabindex="0" aria-label="Ankita Joshi, Visioner, Designer, and Developer">
-            <div class="member-photo" aria-hidden="true" >
-              <img src="aj.jpg" alt="Ankita Joshi" loading="lazy"/>
-            </div>
-            <h3 class="member-name">Ankita Joshi</h3>
-            <p class="member-role">Visioner, Designer, and Developer</p>
-            <p>Ankita is the creative force behind Iconista, bringing the app to life with her innovative design and development skills.</p>
-          </article>
-          <article class="swiper-slide" tabindex="0" aria-label="Heena, Animator and Game Developer">
-            <div class="member-photo" aria-hidden="true" >
-              <img src="h.jpg" alt="Heena" loading="lazy"/>
-            </div>
-            <h3 class="member-name">Heena</h3>
-            <p class="member-role">Animator and Game Developer</p>
-            <p>Heena adds a playful touch to Iconista with her animation and game, making learning engaging and fun.</p>
-          </article>
-          <article class="swiper-slide" tabindex="0" aria-label="Janvi Chuphal, Game Developer and Integrator">
-            <div class="member-photo" aria-hidden="true" >
-              <img src="j.jpg" Janvi Chuphal" loading="lazy"/>
-            </div>
-            <h3 class="member-name">Janvi Chuphal</h3>
-            <p class="member-role">Game Developer and Integrator</p>
-            <p>Janvi ensures a seamless experience within the app, integrating features that enhance user interaction and enjoyment.</p>
-          </article>
+      <div class="member-card">
+        <div class="member-photo" aria-hidden="true">
+          <img src="aj.jpg" alt="Ankita Joshi" loading="lazy"/>
         </div>
-        <!-- Add Pagination -->
-        <div class="swiper-pagination" aria-hidden="true"></div>
+        <h3 class="member-name">Ankita Joshi</h3>
+        <p class="member-role">Visioner, Designer, and Developer</p>
+        <p>Ankita is the creative force behind Iconista, bringing the app to life with her innovative design and development skills.</p>
+      </div>
+      <div class="member-card">
+        <div class="member-photo" aria-hidden="true">
+          <img src="h.jpg" alt="Heena" loading="lazy"/>
+        </div>
+        <h3 class="member-name">Heena</h3>
+        <p class="member-role">Animator and Game Developer</p>
+        <p>Heena adds a playful touch to Iconista with her animation and game development expertise, making learning engaging and fun.</p>
+      </div>
+      <div class="member-card">
+        <div class="member-photo" aria-hidden="true">
+          <img src="j.jpg" alt="Janvi Chuphal" loading="lazy"/>
+        </div>
+        <h3 class="member-name">Janvi Chuphal</h3>
+        <p class="member-role">Game Developer and Integrator</p>
+        <p>Janvi ensures a seamless experience within the app, integrating features that enhance user interaction and enjoyment.</p>
       </div>
     </section>
 
@@ -475,13 +383,14 @@
     </footer>
   </div>
 
-<!-- Swiper JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 <script>
-  // Animate feature cards on scroll
+  // Animate feature cards and member cards on scroll using IntersectionObserver
   document.addEventListener('DOMContentLoaded', () => {
-    const features = document.querySelectorAll('.feature-item');
-    const options = { threshold: 0.15 };
+    const options = {
+      threshold: 0.15
+    };
+    const animateItems = document.querySelectorAll('.feature-item, .member-card');
+
     const observer = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -490,32 +399,8 @@
         }
       });
     }, options);
-    features.forEach(f => observer.observe(f));
 
-    // Animate swiper slides
-    const slides = document.querySelectorAll('.swiper-slide');
-    slides.forEach((slide, i) => {
-      setTimeout(() => slide.classList.add('visible'), 450 + i*300);
-    });
-  });
-
-  // Initialize Swiper
-  const swiper = new Swiper('.swiper-container', {
-    slidesPerView: 1,
-    spaceBetween: 24,
-    loop: true,
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-    breakpoints: {
-      600: {
-        slidesPerView: 2,
-      },
-      900: {
-        slidesPerView: 3,
-      }
-    }
+    animateItems.forEach(item => observer.observe(item));
   });
 </script>
 </body>
